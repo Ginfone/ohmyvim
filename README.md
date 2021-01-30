@@ -2,5 +2,5 @@
 oh my vim config
 
 Prefer user whom use:
-js, ts , react. 
+js, ts , react, svelte.
 
