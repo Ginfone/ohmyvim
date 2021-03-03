@@ -76,5 +76,7 @@ let g:vim_svelte_plugin_load_full_syntax=1
 
 lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.svelte.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.diagnosticls.setup{}
+lua require'lspconfig'.graphql.setup{on_attach=require'completion'.on_attach}
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }}
 
