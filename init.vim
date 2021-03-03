@@ -47,6 +47,9 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Svelte
 Plug 'leafoftree/vim-svelte-plugin'
 
+" Test
+Plug 'vim-test/vim-test'
+
 call plug#end()
 
 colorscheme gruvbox
