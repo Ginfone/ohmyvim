@@ -21,6 +21,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -50,6 +51,9 @@ Plug 'leafoftree/vim-svelte-plugin'
 " Test
 Plug 'vim-test/vim-test'
 
+" Font
+Plug 'kyazdani42/nvim-web-devicons'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -67,6 +71,7 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :Sex!<CR>
 
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+imap <silent> <c-p> <Plug>(completion_trigger)
 
 
 " Fix files with prettier, and then ESLint.
@@ -82,4 +87,6 @@ lua require'lspconfig'.svelte.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.diagnosticls.setup{}
 lua require'lspconfig'.graphql.setup{on_attach=require'completion'.on_attach}
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }}
+
+
 
