@@ -54,6 +54,15 @@ Plug 'vim-test/vim-test'
 " Font
 Plug 'kyazdani42/nvim-web-devicons'
 
+" ES2015 code snippets
+Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'javascript.jsx'] }
+
+" React code snippets
+Plug 'epilande/vim-react-snippets', { 'for': ['javascript', 'javascript.jsx'] }
+
+" Snippet
+Plug 'SirVer/ultisnips'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -66,13 +75,16 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-tnoremap <Esc> <C-\><C-n>
+tnoremap <C-o> <C-\><C-n>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :Sex!<CR>
 
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 imap <silent> <c-p> <Plug>(completion_trigger)
 
+nnoremap <Leader>= :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <Leader>rp :resize 100<CR>
 
 " Fix files with prettier, and then ESLint.
 let g:ale_fixers = ['prettier', 'eslint']
@@ -82,11 +94,14 @@ let g:ale_fix_on_save = 1
 let g:vim_svelte_plugin_load_full_syntax=1
 
 
+" Snippet
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.svelte.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.diagnosticls.setup{}
 lua require'lspconfig'.graphql.setup{on_attach=require'completion'.on_attach}
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }}
-
-
 
