@@ -13,6 +13,7 @@ set nohlsearch
 set noswapfile
 set nowrap
 set clipboard=unnamedplus
+set relativenumber
 
 
 call plug#begin('~/.vim/plugged')
