@@ -1,0 +1,18 @@
+snippet crs "Create resource"
+import {makeResource} from 'saga-resource';
+import {$1 as $1Type} from 'typings/resources/$2';
+import {callReviewsApi} from 'utils/network';
+
+export type $1State = $1Type | null;
+
+const state: $1State | null = null;
+
+const $2 = makeResource<$1State, any, any>({
+	name: '$2',
+	path: '/',
+	axios: callReviewsApi,
+	state,
+});
+
+export default $2;
+endsnippet

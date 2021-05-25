@@ -21,7 +21,6 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -55,13 +54,14 @@ Plug 'vim-test/vim-test'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " ES2015 code snippets
-Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'javascript.jsx'] }
 
 " React code snippets
-Plug 'epilande/vim-react-snippets', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'epilande/vim-react-snippets', { 'for': ['javascript', 'javascript.jsx'] }
 
 " Snippet
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -85,6 +85,7 @@ imap <silent> <c-p> <Plug>(completion_trigger)
 nnoremap <Leader>= :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <Leader>rp :resize 100<CR>
+nnoremap <leader>es :UltiSnipsEdit<cr>
 
 " Fix files with prettier, and then ESLint.
 let g:ale_fixers = ['prettier', 'eslint']
@@ -96,8 +97,8 @@ let g:vim_svelte_plugin_load_full_syntax=1
 
 " Snippet
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.svelte.setup{on_attach=require'completion'.on_attach}
