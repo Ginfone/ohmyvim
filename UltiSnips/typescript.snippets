@@ -16,3 +16,33 @@ const $2 = makeResource<$1State, any, any>({
 
 export default $2;
 endsnippet
+
+snippet ed "export default component"
+export {default} from './$1'
+endsnippet
+
+snippet it "unit test"
+describe("$1", ()=> {
+	it("should $2 when $3 ", ()=> {
+		$4
+	})
+})
+endsnippet
+
+snippet saga "create saga"
+import {call} from 'redux-saga/effects';
+import createSagaActions from 'saga-action-creator';
+
+import $1Resource from 'resources/$1';
+import {wrapPageSagaWithErrorHandling} from 'utils/errors';
+
+export function* fetch$2(): Generator<any, any, any>{
+	yield call($1Resource.effects.fetchRequest)
+}
+
+const $1Saga = createSagaActions({
+	fetch$2: wrapPageSagaWithErrorHandling(fetch$2)
+})
+
+export default $Saga;
+endsnippet
